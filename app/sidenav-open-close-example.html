@@ -1,0 +1,91 @@
+<!-- 
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    Sidenav content
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+    <p>Events:</p>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+
+  Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+<mat-sidenav-container class="h-screen w-screen">
+	<mat-sidenav #sidenav class="shadow border-0" fixedInViewport mode="side" opened>
+		<mat-toolbar>
+			<button mat-mini-fab color="warn" (click)="navigation.toggle()">
+            <mat-icon inline=true fontSet="fa" fontIcon="fa-fire" aria-label="SLMC Logo"></mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-nav-list>
+        <div class=""> 
+          <a mat-list-item>
+              <button mat-icon-button>
+                  <mat-icon inline=true fontSet="fa" fontIcon="fa-users-cog" aria-label="Administrator"></mat-icon>
+              </button>
+          </a>
+          <a mat-list-item>
+              <button mat-icon-button>
+                  <mat-icon inline=true fontSet="fa" fontIcon="fa-tachometer-alt" aria-label="Services"></mat-icon>
+              </button>
+          </a>
+          <a mat-list-item>
+              <button mat-icon-button>
+                  <mat-icon inline=true fontSet="fa" fontIcon="fa-chart-bar" aria-label="Analytics"></mat-icon>
+              </button>
+          </a>
+          <a mat-list-item>
+              <button mat-icon-button>
+                  <mat-icon inline=true fontSet="fa" fontIcon="fa-plus" aria-label="Compose"></mat-icon>
+              </button>
+          </a>
+        </div>
+        <!-- This is where the bottom items reside.-->
+          <div [ngClass]='appropriateClass'> 
+              <a mat-list-item>
+                  <button mat-icon-button>
+                      <mat-icon inline=true fontSet="fa" fontIcon="fa-bell" aria-label="Notifications"></mat-icon>
+                  </button>
+              </a>
+              <a mat-list-item>
+                  <button mat-icon-button>
+                      <mat-icon inline=true fontSet="fa" fontIcon="fa-user" aria-label="User Account"></mat-icon>
+                  </button>
+              </a>
+              <a mat-list-item>
+                  <button mat-icon-button>
+                      <mat-icon inline=true fontSet="fa" fontIcon="fa-cog" aria-label="Settings"></mat-icon>
+                  </button>
+              </a>
+          </div>
+            
+    </mat-nav-list>
+</mat-sidenav>
+<mat-sidenav-content>
+    <mat-sidenav-container>
+        <mat-sidenav #navigation class="shadow border-0" fixedInViewport mode="side" opened>
+            <!-- <app-navigation (toggleNavigation)="navigation.toggle()"></app-navigation> -->
+        </mat-sidenav>
+        <mat-sidenav-content class="page-wrap">
+            <!--
+              <app-header></app-header>
+            <main class="flex-1">
+                <router-outlet></router-outlet>
+            </main>
+            <app-footer></app-footer>
+            -->
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</mat-sidenav-content>
